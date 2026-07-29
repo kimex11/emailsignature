@@ -47,6 +47,31 @@
 
 ## Follow-up polish
 
-- P3: Replace the extracted low-resolution headshot and campaign banner with original high-resolution public assets when the brand team supplies them.
+- P3: Replace the extracted low-resolution headshot and logo crop with original high-resolution public assets when the brand team supplies them.
+
+## Banner redesign revision
+
+**Reported issue:** The original 374 × 150 campaign artwork was being forced into a 400 × 100 HTML box, producing visible horizontal stretching.
+
+**New production asset:** `/Users/kendrickynanflores/Documents/Codex/2026-07-29/rec/signature-builder/public/assets/default-banner.png`
+
+**Banner comparison:** `/Users/kendrickynanflores/Documents/Codex/2026-07-29/rec/signature-builder/work/banner/banner-comparison.png`
+
+**Updated signature evidence:** `/Users/kendrickynanflores/Documents/Codex/2026-07-29/rec/signature-builder/work/banner/signature-with-professional-banner@2x.png`
+
+- Master artwork: 1200 × 300 pixels.
+- Production artwork: native 400 × 100 pixels.
+- Display size: 400 × 100 CSS pixels.
+- Browser state: default Kateri Guzman signature-only preview.
+- Browser console errors: none.
+
+### Revision findings
+
+- The new banner has no non-proportional scaling or crop.
+- The complete original campaign copy remains present and legible.
+- The iad Real Estate logo retains its source proportions in a dedicated white brand panel.
+- The 75/25 composition provides clearer hierarchy than the stretched source while keeping the brand mark visually distinct.
+- Cyan, navy, white, dotted texture, and uppercase typography remain consistent with the supplied iad artwork.
+- Side-by-side comparison found no remaining actionable P0, P1, or P2 issue.
 
 **final result: passed**

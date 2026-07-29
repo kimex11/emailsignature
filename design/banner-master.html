@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>iad Real Estate email banner master</title>
+  <style>
+    html, body { margin: 0; background: #eef3f5; font-family: Arial, Helvetica, sans-serif; }
+    canvas, img { display: block; width: 1200px; height: 300px; }
+    canvas { position: absolute; left: -99999px; }
+  </style>
+</head>
+<body>
+  <canvas id="banner" width="1200" height="300"></canvas>
+  <img id="banner-export" width="1200" height="300" alt="Rendered iad Real Estate email banner">
+  <script>
+    const canvas = document.getElementById("banner");
+    const output = document.getElementById("banner-export");
+    const ctx = canvas.getContext("2d");
+    const logoSource = new Image();
+
+    function drawDots(originX, originY, columns, rows, spacing, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = "#ffffff";
+      for (let row = 0; row < rows; row += 1) {
+        for (let column = 0; column < columns; column += 1) {
+          const x = originX + column * spacing + row * 3;
+          const y = originY + row * spacing;
+          ctx.beginPath();
+          ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      ctx.restore();
+    }
+
+    logoSource.onload = () => {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, 1200, 300);
+
+      ctx.fillStyle = "#00a6e4";
+      ctx.fillRect(0, 0, 900, 300);
+      ctx.fillStyle = "#12263b";
+      ctx.fillRect(0, 0, 14, 300);
+
+      drawDots(742, -26, 8, 5, 25, .25);
+      drawDots(720, 244, 8, 5, 25, .22);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "800 49px Arial, Helvetica, sans-serif";
+      ctx.textBaseline = "top";
+      ctx.fillText("YOUR DREAM HOME COULD", 66, 38);
+      ctx.fillText("BE JUST A SEARCH AWAY", 66, 88);
+
+      ctx.fillRect(66, 154, 106, 5);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(66, 174, 232, 30);
+      ctx.fillStyle = "#0085b8";
+      ctx.font = "800 16px Arial, Helvetica, sans-serif";
+      ctx.fillText("JOINIADREALESTATE.COM", 81, 181);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "400 22px Arial, Helvetica, sans-serif";
+      ctx.fillText("One Brokerage. Unlimited Possibilities.", 66, 221);
+      const secondLine = "Own Your Future. ";
+      ctx.fillText(secondLine, 66, 248);
+      const secondLineWidth = ctx.measureText(secondLine).width;
+      ctx.font = "800 22px Arial, Helvetica, sans-serif";
+      ctx.fillText("Join iad Florida!", 66 + secondLineWidth, 248);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(900, 0, 300, 300);
+      ctx.drawImage(logoSource, 270, 30, 96, 110, 954, 40, 192, 220);
+
+      ctx.fillStyle = "rgba(18, 38, 59, .09)";
+      ctx.fillRect(900, 0, 3, 300);
+      ctx.fillStyle = "#00a6e4";
+      ctx.fillRect(1152, 270, 24, 5);
+
+      output.src = canvas.toDataURL("image/png");
+    };
+
+    logoSource.src = "./default-banner-source.png";
+  </script>
+</body>
+</html>
